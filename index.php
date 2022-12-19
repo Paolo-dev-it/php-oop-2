@@ -60,15 +60,22 @@
   </head>
 
   <body>
-    <h1>Boolshop</h1>
+    
     <div class="container">
+        <h1>Boolshop</h1>
+        <h2>I nostri prodotti</h2>
         <div class="row">
             <div class="col-4 ">
                <?php foreach ($prodottiCani as $element) { ?>
                    <div class="card">
                     <img src= "<?php echo $element -> immagine ?>" class="card-img-top w-100" alt="...">
                     <div class="card-body ">
-                        <h4 class="card-title text-dark text-uppercase"><?php echo $element -> nome ?></h4> 
+                        <h4 class="card-title text-dark text-uppercase"><?php echo $element -> nome ?></h4>
+                        <?php foreach($category as $elemento) ?>
+                            <i class="<?php echo $elemento -> icona ?>"></i>
+                            <p>
+                                <?php echo $elemento -> nome ?>
+                            </p> 
                         <h5 class="card-title text-dark opacity-50">
                         <?php echo $element -> prezzo  ?>
                         </h5>
@@ -78,11 +85,7 @@
                         <?php echo $element -> ingredienti  ?>
                         </p>
                         </p>
-                        <?php foreach($category as $elemento) ?>
-                        <img src="<?php echo $elemento -> icona ?>" alt="">
-                        <p>
-                            <?php echo $elemento -> nome ?>
-                        </p>
+                        
                     </div>
                 </div> 
         <?php } ?> 
@@ -93,7 +96,12 @@
                         <div class="card">
                             <img src= "<?php echo $el -> immagine ?>" class="card-img-top " alt="...">
                             <div class="card-body ">
-                                <h4 class="card-title text-dark text-uppercase"><?php echo $el -> nome ?></h4> 
+                                <h4 class="card-title text-dark text-uppercase"><?php echo $el -> nome ?></h4>
+                                <?php foreach($category as $elemento) ?>
+                                    <i class="<?php echo $elemento -> icona ?>"></i>
+                                    <p>
+                                        <?php echo $elemento -> nome ?>
+                                    </p> 
                                 <h5 class="card-title text-dark opacity-50">
                                     <?php echo $el -> prezzo  ?>
                                 </h5>
@@ -103,6 +111,7 @@
                                 <p class="card-text text-dark opacity-50">
                                     <?php echo $el -> dimensioni  ?>
                                 </p>
+                                
                             </div>
                         </div> 
                         <?php } ?> 
@@ -113,7 +122,12 @@
                                 <div class="card">
                                     <img src= "<?php echo $data -> immagine ?>" class="card-img-top " alt="...">
                                     <div class="card-body ">
-                                        <h4 class="card-title text-dark text-uppercase"><?php echo $data -> nome ?></h4> 
+                                        <h4 class="card-title text-dark text-uppercase"><?php echo $data -> nome ?></h4>
+                                        <?php foreach($category as $elemento) ?>
+                                            <i class="<?php echo $elemento -> icona ?>"></i>
+                                            <p>
+                                                <?php echo $elemento -> nome ?>
+                                            </p> 
                                         <h5 class="card-title text-dark opacity-50">
                                             <?php echo $data -> prezzo  ?>
                                         </h5>
@@ -123,6 +137,7 @@
                                         <p class="card-text text-dark opacity-50">
                                             <?php echo $data -> dimensioni  ?>
                                         </p>
+                                        
                                     </div>
                                 </div> 
                                 <?php } ?>
