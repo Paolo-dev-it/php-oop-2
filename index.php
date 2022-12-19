@@ -8,8 +8,8 @@
 
     $category = [
         'cane' => new Categorie('cane', 'fa-solid fa-dog'),
-        'uccello' => new Categorie('uccello', 'fa-solid fa-cat'),
-        'gatto' => new Categorie('gatto', 'fa-solid fa-dove')
+        'uccello' => new Categorie('uccello', 'fa-solid fa-dove'),
+        'gatto' => new Categorie('gatto', 'fa-solid fa-cat')
     ];
 
     //var_dump( $category );
@@ -62,31 +62,31 @@
         <div class="row">
             <?php
             // Ciclo per scorrere l'array dei prodotti
-            foreach ($prodotti as $data) {
+            foreach ($prodotti as $element) {
                 // Prodotto che appartiene alla categoria 'cane'
-                if ($data->category->nome == 'cane') {
+                if ($element->category->nome == 'cane') {
             ?>
             <div class="col-3 mt-3">
                 <div class="card">
-                    <img class="progress" style="height: 304px;" src="<?php echo $data->immagine ?>" class="card-img-top" alt="...">
+                    <img  style="height: 304px;" src="<?php echo $element->immagine ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h4 class="card-title text-uppercase">
-                            <?php echo $data->nome ?>
+                            <?php echo $element->nome ?>
                         </h4>
-                        <h6 class="card-title text-uppercase">
-                            <?php echo $data->category->nome ?>
-                            <i class="<?php echo $data->category->icona ?>"></i>
+                        <h6 class="card-title ">
+                            <?php echo $element->category->nome ?>
+                            <i class="<?php echo $element->category->icona ?>"></i>
                         </h6>
                         <h5 class="card-title opacity-75">
-                            <?php echo $data->prezzo ?> $
+                            <?php echo $element->prezzo ?> €
                         </h5>
                         <p class="card-text opacity-75">
                             peso netto:
-                            <?php echo $data->pesonetto ?> g
+                            <?php echo $element->pesonetto ?> g
                         </p>
                         <p class="card-text opacity-75">
                             ingredienti:
-                            <?php echo $data->ingredienti ?>
+                            <?php echo $element->ingredienti ?>
                         </p>
                     </div>
                 </div>
@@ -98,31 +98,31 @@
 
             <?php
 
-            foreach ($prodotti as $data) {
+            foreach ($prodotti as $element) {
                 // Prodotto che appartiene alla categoria 'uccello'
-                if ($data->category->nome == 'uccello') {
+                if ($element->category->nome == 'uccello') {
             ?>
             <div class="col-3 mt-3">
                 <div class="card">
-                    <img class="progress" style="height: 304px;" src="<?php echo $data->immagine ?>" class="card-img-top" alt="...">
+                    <img class="progress" style="height: 304px;" src="<?php echo $element->immagine ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h4 class="card-title text-uppercase">
-                            <?php echo $data->nome ?>
+                            <?php echo $element->nome ?>
                         </h4>
-                        <h6 class="card-title text-uppercase">
-                            <?php echo $data->category->nome ?>
-                            <i class="<?php echo $data->category->icona ?>"></i>
+                        <h6 class="card-title ">
+                            <?php echo $element->category->nome ?>
+                            <i class="<?php echo $element->category->icona ?>"></i>
                         </h6>
                         <h5 class="card-title opacity-75">
-                            <?php echo $data->prezzo ?> $
+                            <?php echo $element->prezzo ?> €
                         </h5>
                         <p class="card-text opacity-75">
                             Materiale:
-                            <?php echo $data->materiale ?>
+                            <?php echo $element->materiale ?>
                         </p>
                         <p class="card-text opacity-75">
                             Dimensioni:
-                            <?php echo $data->dimensioni ?>
+                            <?php echo $element->dimensioni ?>
                         </p>
                     </div>
                 </div>
@@ -134,31 +134,31 @@
 
             <?php
 
-            foreach ($prodotti as $data) {
+            foreach ($prodotti as $element) {
                 // Prodotto che appartiene alla categoria 'gatto'
-                if ($data->category->nome == 'gatto') {
+                if ($element->category->nome == 'gatto') {
             ?>
             <div class="col-3 mt-3">
                 <div class="card">
-                    <img class="progress" style="height: 304px;" src="<?php echo $data->immagine ?>" class="card-img-top" alt="...">
+                    <img class="progress" style="height: 304px;" src="<?php echo $element->immagine ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h4 class="card-title text-uppercase">
-                            <?php echo $data->nome ?>
+                            <?php echo $element->nome ?>
                         </h4>
-                        <h6 class="card-title text-uppercase">
-                            <?php echo $data->category->nome ?> 
-                            <i class="<?php echo $data->category->icona ?>"></i>
+                        <h6 class="card-title ">
+                            <?php echo $element->category->nome ?> 
+                            <i class="<?php echo $element->category->icona ?>"></i>
                         </h6>
                         <h5 class="card-title opacity-75">
-                            <?php echo $data->prezzo ?> $
+                            <?php echo $element->prezzo ?> €
                         </h5>
                         <p class="card-text opacity-75">
                             caratteristiche:
-                            <?php echo $data->caratteristiche ?>
+                            <?php echo $element->caratteristiche ?>
                         </p>
                         <p class="card-text opacity-75">
                             Dimensioni:
-                            <?php echo $data->dimensioni ?>
+                            <?php echo $element->dimensioni ?>
                         </p>
                     </div>
                 </div>
