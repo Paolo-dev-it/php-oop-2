@@ -12,15 +12,24 @@
         'gatto' => new Categorie('gatto', 'fa-solid fa-dove')
     ];
 
-    var_dump( $category );
+    //var_dump( $category );
 
-    $prodotti = [
+    $prodottiCani = [
         new Cibo( 'https://cdn.royalcanin-weshare-online.io/v2k6a2QBG95Xk-RBN9oV/v196/packshot-mini-ad-shn17', 'Royal Canin', 43.99, $category['cane'], 545, 'prosciutto, riso' ),
+
         new Cibo( 'https://shop-cdn-m.mediazs.com/bilder/almo/nature/holistic/medium/adult/con/manzo/fresco/5/800/68015_pla_almo_nature_holistic_adult_rind_reis_medium_746_12kg_dog_5.jpg', 'Almo Nature', 44.99, $category['cane'], 600, 'manzo, cereali' ),
-        new Accessori('https://static.bighunter.net/foto/1_Def_per_web_zoom/14089/14089.jpg', 'Voliera Ferplast Bella Casa', 184.99, $category['uccello'], 'legno', 'M: L83 x P67 x H153 cm '),
+
+    ];
+
+    $prodottiUccelli = [ 
+        new Accessori('https://static.bighunter.net/foto/1_Def_per_web_zoom/14089/14089.jpg', 'Voliera Ferplast Bella Casa', 184.99, $category['uccello'], 'legno', 'M: L83 x P67 x H153 cm ')
+    ];
+
+    $prodottiGatti = [ 
         new Giocattoli( 'https://i.ebayimg.com/images/g/03kAAOSwA4BbK4Gm/s-l500.jpg', 'Topini di Peluche Trixie', 4.99, $category['gatto'], 'Morbido con codina in corda', '8.5 cm x 10 cm' )
     ];
-    var_dump( $prodotti );
+
+    // var_dump( $prodotti );
 
 ?>
 
@@ -47,29 +56,79 @@
       referrerpolicy="no-referrer"
     />
     <!-- CSS LINK-->
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/style.css" />
   </head>
 
   <body>
     <h1>Boolshop</h1>
     <div class="container">
         <div class="row">
-            <?php foreach ($category as $data) { ?>
-                <div class="card  ">
-                    <img src= "<?php echo $data['cane'] ?>" class="card-img-top" alt="...">
+            <div class="col-4 ">
+               <?php foreach ($prodottiCani as $element) { ?>
+                   <div class="card">
+                    <img src= "<?php echo $element -> immagine ?>" class="card-img-top w-100" alt="...">
                     <div class="card-body ">
-                        <h4 class="card-title text-white text-uppercase"><?php echo $data['title'] ?></h4> 
-                        <h5 class="card-title text-white opacity-50">
-                        <?php echo $data['author'] ?>
+                        <h4 class="card-title text-dark text-uppercase"><?php echo $element -> nome ?></h4> 
+                        <h5 class="card-title text-dark opacity-50">
+                        <?php echo $element -> prezzo  ?>
                         </h5>
-                        <p class="card-text text-white opacity-50">
-                        <?php echo $data['year'] ?>
+                        <p class="card-text text-dark opacity-50">
+                        <?php echo $element -> pesonetto  ?>
+                        <p class="card-text text-dark opacity-50">
+                        <?php echo $element -> ingredienti  ?>
+                        </p>
+                        </p>
+                        <?php foreach($category as $elemento) ?>
+                        <img src="<?php echo $elemento -> icona ?>" alt="">
+                        <p>
+                            <?php echo $elemento -> nome ?>
                         </p>
                     </div>
+                </div> 
+        <?php } ?> 
+            </div>
+
+                    <div class="col-4">
+                        <?php foreach ($prodottiUccelli as $el) { ?>
+                        <div class="card">
+                            <img src= "<?php echo $el -> immagine ?>" class="card-img-top " alt="...">
+                            <div class="card-body ">
+                                <h4 class="card-title text-dark text-uppercase"><?php echo $el -> nome ?></h4> 
+                                <h5 class="card-title text-dark opacity-50">
+                                    <?php echo $el -> prezzo  ?>
+                                </h5>
+                                <p class="card-text text-dark opacity-50">
+                                    <?php echo $el -> materiale  ?>
+                                </p>
+                                <p class="card-text text-dark opacity-50">
+                                    <?php echo $el -> dimensioni  ?>
+                                </p>
+                            </div>
+                        </div> 
+                        <?php } ?> 
+                    </div>
+                
+                    <div class="col-4">
+                           <?php foreach ($prodottiGatti as $data) { ?>
+                                <div class="card">
+                                    <img src= "<?php echo $data -> immagine ?>" class="card-img-top " alt="...">
+                                    <div class="card-body ">
+                                        <h4 class="card-title text-dark text-uppercase"><?php echo $data -> nome ?></h4> 
+                                        <h5 class="card-title text-dark opacity-50">
+                                            <?php echo $data -> prezzo  ?>
+                                        </h5>
+                                        <p class="card-text text-dark opacity-50">
+                                            <?php echo $data -> caratteristiche  ?>
+                                        </p>
+                                        <p class="card-text text-dark opacity-50">
+                                            <?php echo $data -> dimensioni  ?>
+                                        </p>
+                                    </div>
+                                </div> 
+                                <?php } ?>
+                        </div> 
+                    </div>
                 </div>
-        <?php } ?>
-        </div>
-    </div>
 
     <!-- AXIOS -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
