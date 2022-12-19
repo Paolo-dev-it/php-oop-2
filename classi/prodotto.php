@@ -16,12 +16,10 @@
             Categorie $category
 
             ) {
-            $this->nome = $nome;
-            $this->autore = $autore;
-            $this->prezzo = $prezzo;
-            $this->generi = $generi;
-            $this->pubblicato = $pubblicato;
             $this->immagine = $immagine;
+            $this->nome = $nome;
+            $this->prezzo = $prezzo;
+            $this->category = $category;      
   }
 
 }
